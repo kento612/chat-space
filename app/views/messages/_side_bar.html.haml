@@ -1,10 +1,10 @@
 .sidebar
   .sidebar__header
     .sidebar__header__line
-      user
+      = current_user.name
       .sidebar__header__line__icons
-        = link_to icon('fa', 'edit')
-        = link_to icon('fa', 'cog')
+        = link_to icon('fa', 'edit'),new_group_path
+        = link_to icon('fa', 'cog'),edit_user_path(current_user)
   .sidebar__list
     .sidebar__list__contents
       .sidebar__list__contents__group

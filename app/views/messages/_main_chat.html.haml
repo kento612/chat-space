@@ -2,30 +2,19 @@
   .main__header
     .main__header__left
       .main__header__left__group
-        test
+        = @group.name
       .main__header__left__member
-        Member : name
-    = link_to 'Edit', "#", class:"edit-btn"
+        Member : 
+        - @group.group_users.each do |group_user|
+          = group_user.user.name
+    = link_to 'Edit', edit_group_path(@group), class:"edit-btn"
   .main__messages
-    .main__messages__data
-      .main__messages__data__who
-        name
-      .main__messages__data__when
-        2020/03/06(Sun) 17:00:00
-    .main__messages__message
-      おはよう!
-    .main__messages__data
-      .main__messages__data__who
-        Genius:
-      .main__messages__data__when
-        2019/3/8(Sun) 14:38:34
-    .main__messages__message
-      Hello ;)
+    = render @messages
   .main__bottom
-    .main__bottom__form
-      %input.text{ placeholder:"type a message"}
-      %label{class: "input-box__image"}
-        = icon('fas', 'image')
-        %input{type: "file"}
-    .send-btn
-      Send
+    = form_for [@group, @message] do |f|
+      .form__box
+        = f.text_field :content, class: 'form__message', placeholder: "type a message"
+        = f.label :image, class: 'form__image' do
+          = icon('fas', 'image')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__send'

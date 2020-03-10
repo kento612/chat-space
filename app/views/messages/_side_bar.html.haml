@@ -6,14 +6,11 @@
         = link_to icon('fa', 'edit'),new_group_path
         = link_to icon('fa', 'cog'),edit_user_path(current_user)
   .sidebar__list
-    .sidebar__list__contents
-      .sidebar__list__contents__group
-        tech::camp
-      .sidebar__list__contents__news
-        まだメッセージはありません。
-    .sidebar__list__contents
-      .sidebar__list__contents__group
-        tech::expert
-      .sidebar__list__contents__news
-        頑張ります！
+    - current_user.groups.each do |group|
+      .sidebar__list__contents
+        = link_to '#' do
+          .sidebar__list__contents__group
+            = group.name
+          .sidebar__list__contents__news
+            メッセージはまだありません。
     

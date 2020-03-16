@@ -17,4 +17,4 @@
         = f.label :image, class: 'form__image' do
           = icon('fas', 'image')
           = f.file_field :image, class: 'hidden'
-      = f.submit 'Send', class: 'form__send'
+      = f.submit 'Send', class: 'form__send' , "data-disable-with" => false

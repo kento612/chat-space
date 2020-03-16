@@ -87,6 +87,7 @@
     background-color: #fafafa;
     height: calc(100vh - 190px);
     padding: 35px 40px;
+    overflow: scroll; 
     &__data{
       display:flex;
       align-items: center;
@@ -122,7 +123,7 @@
           width: 100%;
           height: 100%;
           border: none;
-          padding: 0 40px 0 10px;
+          padding: 13px 45px 13px 13px;
         }
         .form__image{
           position: absolute;
